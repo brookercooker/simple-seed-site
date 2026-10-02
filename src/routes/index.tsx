@@ -49,7 +49,7 @@ function Hero() {
   return (
     <section className="bg-background">
       <div className="mx-auto max-w-5xl px-6 py-28 text-center md:py-36">
-        <h1 className="mx-auto max-w-2xl text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+        <h1 className="mx-auto max-w-2xl text-4xl font-bold tracking-tight text-title md:text-5xl">
           Ship faster with Pipeline Test
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground md:text-lg">
