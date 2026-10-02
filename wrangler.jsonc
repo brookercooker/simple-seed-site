@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "simple-seed-site",
+  "compatibility_date": "2026-10-02",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // Deliberately minimal beyond this: Nitro's Cloudflare Workers preset documents itself as
+  // "zero configuration" for the entry point / assets wiring, so main/assets are left for
+  // Cloudflare's build to auto-detect rather than guessed at without being able to run the
+  // build locally (registry access is blocked in every environment available this session --
+  // see pipeline-test-plan.md). If the first build fails for a missing main/assets field,
+  // the error will say so precisely and this file gets a follow-up commit then.
+  "vars": {
+    "VITE_SUPABASE_PUBLISHABLE_KEY": "sb_publishable__0REYz3-NtpXeYfhkblirA_UObABcR1",
+    "VITE_SUPABASE_URL": "https://vhdrooartoyogqoxmrmf.supabase.co"
+  }
+}
