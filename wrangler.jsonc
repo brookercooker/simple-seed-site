@@ -13,5 +13,12 @@
   "vars": {
     "VITE_SUPABASE_PUBLISHABLE_KEY": "sb_publishable__0REYz3-NtpXeYfhkblirA_UObABcR1",
     "VITE_SUPABASE_URL": "https://vhdrooartoyogqoxmrmf.supabase.co"
+  },
+   "previews": {
+    "vars": {
+      "VITE_SUPABASE_PUBLISHABLE_KEY": "sb_publishable__0REYz3-NtpXeYfhkblirA_UObABcR1",
+      "VITE_SUPABASE_URL": "https://vhdrooartoyogqoxmrmf.supabase.co"
+    }
   }
+  
 }
