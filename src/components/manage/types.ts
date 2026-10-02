@@ -7,6 +7,17 @@ export type RequestStatus =
   | "rejected"
   | "failed";
 
+export type DesignMessageSender = "staff" | "claude";
+
+export interface DesignMessage {
+  id: string;
+  body: string;
+  sender: DesignMessageSender;
+  relayed_at: string | null;
+  created_by: string | null;
+  created_at: string;
+}
+
 export interface ChatRequest {
   id: string;
   prompt: string;
