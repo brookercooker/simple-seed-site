@@ -51,7 +51,7 @@ export const submitFeedback = createServerFn({ method: "POST" })
 
     const key = process.env["SUPABASE_PUBLISHABLE_KEY"]!;
     const { createClient } = await import("@supabase/supabase-js");
-    const { default: Database } = await import("@/integrations/supabase/types");
+    const { type Database } = await import("@/integrations/supabase/types");
     const supabasePublic = createClient(process.env["SUPABASE_URL"]!, key, {
       auth: { persistSession: false, autoRefreshToken: false },
       global: {
