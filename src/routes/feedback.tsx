@@ -35,7 +35,9 @@ export const Route = createFileRoute("/feedback")({
 
 function FeedbackPage() {
   const submit = useServerFn(submitFeedback);
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<
+    Partial<Record<"name" | "email" | "message", string>>
+  >({});
   const [formError, setFormError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -52,7 +54,9 @@ function FeedbackPage() {
     });
 
     if (!parsed.success) {
-      const fieldErrors: Record<string, string> = {};
+      const fieldErrors: Partial<
+        Record<"name" | "email" | "message", string>
+      > = {};
       for (const issue of parsed.error.issues) {
         const field = issue.path[0];
         if (typeof field === "string" && !fieldErrors[field]) {
