@@ -57,9 +57,10 @@ function FeedbackPage() {
       const fieldErrors: Partial<
         Record<"name" | "email" | "message", string>
       > = {};
+      const fields = ["name", "email", "message"] as const;
       for (const issue of parsed.error.issues) {
-        const field = issue.path[0];
-        if (typeof field === "string" && !fieldErrors[field]) {
+        const field = fields.find((f) => issue.path[0] === f);
+        if (field && !fieldErrors[field]) {
           fieldErrors[field] = issue.message;
         }
       }
