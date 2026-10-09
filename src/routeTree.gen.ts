@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as FeedbackRouteImport } from './routes/feedback'
+import { Route as ImagesRouteImport } from './routes/images'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,40 @@ const FeedbackRoute = FeedbackRouteImport.update({
   path: '/feedback',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ImagesRoute = ImagesRouteImport.update({
+  id: '/images',
+  path: '/images',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/feedback': typeof FeedbackRoute
+  '/images': typeof ImagesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/feedback': typeof FeedbackRoute
+  '/images': typeof ImagesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/feedback': typeof FeedbackRoute
+  '/images': typeof ImagesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/feedback'
+  fullPaths: '/' | '/feedback' | '/images'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/feedback'
-  id: '__root__' | '/' | '/feedback'
+  to: '/' | '/feedback' | '/images'
+  id: '__root__' | '/' | '/feedback' | '/images'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   FeedbackRoute: typeof FeedbackRoute
+  ImagesRoute: typeof ImagesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FeedbackRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/images': {
+      id: '/images'
+      path: '/images'
+      fullPath: '/images'
+      preLoaderRoute: typeof ImagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   FeedbackRoute: FeedbackRoute,
+  ImagesRoute: ImagesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
