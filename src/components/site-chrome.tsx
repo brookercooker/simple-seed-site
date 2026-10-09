@@ -20,6 +20,13 @@ export function Nav() {
             Pricing
           </a>
           <Link
+            to="/images"
+            className="transition-colors hover:text-foreground"
+            activeProps={{ className: "text-foreground font-medium" }}
+          >
+            Images
+          </Link>
+          <Link
             to="/feedback"
             className="transition-colors hover:text-foreground"
             activeProps={{ className: "text-foreground font-medium" }}
